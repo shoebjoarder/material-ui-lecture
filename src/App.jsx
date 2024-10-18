@@ -1,6 +1,5 @@
 import React, { createContext, useState } from "react";
-import { CssBaseline, Divider } from "@mui/material";
-import Grid from "@mui/material/Grid2";
+import { Container, CssBaseline, Divider } from "@mui/material";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/header";
 import Footer from "./components/footer";
@@ -21,19 +20,13 @@ export default function App() {
         <CssBaseline />
         <BrowserRouter>
           <Header />
-          <Grid
-            container
-            justifyContent="center"
-            sx={{ minHeight: "90vh", py: 10, px: 2 }}
-          >
-            <Grid size={{ xs: 12, md: 8, lg: 5 }}>
-              <Routes>
-                <Route index element={<Users />} />
-                <Route path="users/:userId/todos" element={<Todo />} />
-                <Route path="*" element={<Navigate to={"/"} replace />} />
-              </Routes>
-            </Grid>
-          </Grid>
+          <Container maxWidth="lg" sx={{ minHeight: "95vh", py: 12, px: 2 }}>
+            <Routes>
+              <Route index element={<Users />} />
+              <Route path="users/:userId/todos" element={<Todo />} />
+              <Route path="*" element={<Navigate to={"/"} replace />} />
+            </Routes>
+          </Container>
         </BrowserRouter>
         <Divider />
         <Footer />

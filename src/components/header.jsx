@@ -6,7 +6,7 @@ const Header = () => {
     <>
       <AppBar>
         <Toolbar>
-          <Typography variant="h6">React.js 2 Hands-on</Typography>
+          <Typography variant="h6">Material-UI Lecture</Typography>
         </Toolbar>
       </AppBar>
     </>

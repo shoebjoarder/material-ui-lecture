@@ -77,9 +77,46 @@ const Todo = () => {
       <Divider />
       <AddTodo handleAddTodo={handleAddTodo} />
       {todos.length ? (
-        <Typography gutterBottom>#{todos.length} to-dos found!</Typography>
+        <Typography variant="overline" gutterBottom>
+          #{todos.length} to-dos found!
+        </Typography>
       ) : (
-        <Typography gutterBottom>No to-dos found!</Typography>
+        <Typography
+          // * Variant prop -> default "body1"
+          // variant="h1"
+          // variant="h2"
+          // variant="h3"
+          // variant="h4"
+          // variant="h5"
+          // variant="h6"
+          // variant="body1"
+          // variant="body2"
+          // variant="button"
+          // variant="caption"
+          // variant="overline"
+
+          // * Padding bottom prop
+          gutterBottom
+
+          // * Alignment prop -> default "inherit"
+          // align="center"
+          // align="justify"
+          // align="left"
+          // align="right"
+
+          // * Color prop
+          // color="primary"
+          // color="secondary"
+          // color="error"
+          // color="info"
+          // color="warning"
+          // color="textPrimary"
+          // color="textSecondary"
+          // color="textDisabled"
+          // color="string"
+        >
+          No to-dos found!
+        </Typography>
       )}
       {todos.map((todo, index) => {
         return (

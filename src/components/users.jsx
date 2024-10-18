@@ -15,15 +15,17 @@ export default function Users() {
     if (Boolean(users.length)) {
       setLoading(false);
     } else {
-      requestUserDetails()
-        .then((response) => {
-          setUsers(response);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error(error);
-          setError(true);
-        });
+      setInterval(() => {
+        requestUserDetails()
+          .then((response) => {
+            setUsers(response);
+            setLoading(false);
+          })
+          .catch((error) => {
+            console.error(error);
+            setError(true);
+          });
+      }, 5000);
     }
   }, []);
 
@@ -33,7 +35,7 @@ export default function Users() {
 
   return (
     <>
-      <Grid container spacing={2} alignItems="center">
+      <Grid container spacing={2} justifyContent="center">
         {error ? (
           <Grid size={{ xs: 12 }}>
             <Typography align="center">Error loading data...</Typography>
@@ -41,7 +43,19 @@ export default function Users() {
         ) : loading ? (
           <Grid size={{ xs: 12 }}>
             <Grid container spacing={2} direction="column" alignItems="center">
-              <CircularProgress size={40} />
+              <CircularProgress
+                // * Size prop
+                size={40}
+
+                // * Color prop -> default "primary"
+                // color="secondary"
+                // color="primary"
+                // color="secondary"
+                // color="error"
+                // color="info"
+                // color="warning"
+                // color="string"
+              />
               <Typography align="center">Loading...</Typography>
             </Grid>
           </Grid>
@@ -49,8 +63,18 @@ export default function Users() {
           <>
             {users?.map((user) => {
               return (
-                <Grid key={user.id} size={{ xs: 12, sm: 6 }}>
+                <Grid key={user.id} size={{ xs: 12, sm: 6, md: 3 }}>
                   <Paper
+                    // * Elevation prop -> default 1
+                    // elevation={0}
+
+                    // * Square corners -> border-radius: 0
+                    // square={true}
+                    // square  // alternative
+
+                    // * Variant prop -> default "elevation"
+                    // variant="outlined"
+                    // variant="string"
                     sx={{
                       p: 2,
                       "&:hover": { boxShadow: 5 },
@@ -64,13 +88,17 @@ export default function Users() {
                       direction="column"
                       alignItems="center"
                     >
-                      <Avatar
-                        src={user.avatar}
-                        sx={{ width: 56, height: 56 }}
-                      />
-                      <Typography variant="h5" align="center">
-                        {user.name}
-                      </Typography>
+                      <Grid>
+                        <Avatar
+                          src={user.avatar}
+                          sx={{ width: 56, height: 56 }}
+                        />
+                      </Grid>
+                      <Grid>
+                        <Typography variant="h5" align="center">
+                          {user.name}
+                        </Typography>
+                      </Grid>
                     </Grid>
                   </Paper>
                 </Grid>

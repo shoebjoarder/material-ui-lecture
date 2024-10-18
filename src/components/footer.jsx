@@ -20,9 +20,20 @@ const Footer = () => {
           <Typography variant="body2">
             {" Copyright @ "}
             <Link
-              color="inherit"
               href="https://www.uni-due.de/soco"
               target="_blank"
+              
+              // * Underline prop
+              // underline="none"
+              // underline="hover"
+              // underline="always"
+              
+              // * Variant prop -> Similar like Typography
+              variant="body2"
+              
+              // * Color prop -> Similar like Typography
+              color="secondary"
+              // color="inherit"
             >
               Social Computing Group
             </Link>{" "}
