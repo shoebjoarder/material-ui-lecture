@@ -47,14 +47,16 @@ const Todo = () => {
   };
 
   const handleAddTodo = (title) => {
-    let newTodo = {
-      userId: userId,
-      id: Math.random(),
-      title,
-      completed: false,
-    };
-    let newTodoList = [newTodo, ...todos];
-    setTodos(newTodoList);
+    if (title.length) {
+      let newTodo = {
+        userId: userId,
+        id: Math.random(),
+        title,
+        completed: false,
+      };
+      let newTodoList = [newTodo, ...todos];
+      setTodos(newTodoList);
+    }
   };
 
   const handleCompleteTodo = (event, id) => {

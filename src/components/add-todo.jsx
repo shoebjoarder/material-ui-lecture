@@ -43,7 +43,7 @@ const AddTodo = ({ handleAddTodo }) => {
 
           // * Icon prop
           // startIcon={<AddIcon />}
-          endIcon={<AddIcon />}
+          // endIcon={<AddIcon />}
           onClick={() => handleAddTodo(addTask)}
         >
           Add
