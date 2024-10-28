@@ -39,7 +39,7 @@ const Todo = () => {
         )
       );
     };
-  }, [todos.length]);
+  }, [todos]);
 
   const handleDeleteTodo = (id) => {
     let newTodos = todos.filter((todo) => todo.id !== id);

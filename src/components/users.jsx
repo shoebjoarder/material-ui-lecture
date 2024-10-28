@@ -15,7 +15,7 @@ export default function Users() {
     if (Boolean(users.length)) {
       setLoading(false);
     } else {
-      setInterval(() => {
+      setTimeout(() => {
         requestUserDetails()
           .then((response) => {
             setUsers(response);
@@ -25,7 +25,7 @@ export default function Users() {
             console.error(error);
             setError(true);
           });
-      }, 5000);
+      }, 2000);
     }
   }, []);
 
